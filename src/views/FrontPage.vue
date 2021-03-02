@@ -18,7 +18,7 @@
 			<h1>Create new project</h1>
 			<input type="text" id="nameInput"/>
 			<br />
-			<div v-if="modalErrorText">{{modalErrorText}}</div>
+			<div v-if="modalErrorText" class="errorText">{{modalErrorText}}</div>
 			<Button :text="'Save'" @clicked="modalSave" />
 		</Modal>
 		
@@ -119,6 +119,18 @@ export default {
 	.modalContent {
 		display: flex;
 		flex-direction: column;
+
+		.button {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+		}
+
+		.errorText {
+			color: #EE0000;
+			text-shadow: 1px 1px #000;
+			font-weight: 700;
+		}
 	}
 
 	input {

@@ -30,11 +30,12 @@ export default {
 }
 .modalContent {
 	position: fixed;
-	left: 10%;
 	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
 
-	width: 400px;
-	height: 400px;
+	width: 350px;
+	height: 200px;
 	background: gray;
 }
 </style>

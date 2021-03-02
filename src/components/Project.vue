@@ -12,7 +12,7 @@
 		
 		<div class="footer">
 			<Button :text="'Send Invoice &#9993;'" />
-			<Button :text="'&#10003;'" @clicked="completedToggle"/>
+			<Button :text="'&#10003;'" @clicked="completedToggle" :class="[project.completed ? 'completed' : null]"/>
 		</div>
 	</div>
 </template>
@@ -116,5 +116,9 @@ export default {
 	right: 0px;
 
 	padding: 3px;
+}
+
+.completed {
+	background-color: #29B150 !important;
 }
 </style>
