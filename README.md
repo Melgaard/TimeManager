@@ -3,22 +3,19 @@
 ## Project setup
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Afterwards should be available on localhost:8080
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Information
+Basic time management project in Vue3 able to create and delete projects and track tiem spent working on them.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Places to improve include:
+- Complete send invoice functionality
+- Hide completed projects from the overview
+- Implement functionality to not be able to work on multiple projects simultaneously
+- Replace the DB with something not browser localstorage
+- Better structure in modal functionality
+- Potentially add a timer for currently active working session
+- Generally improve the styling, specifically with a shared theme file, to more easily change color scheme
