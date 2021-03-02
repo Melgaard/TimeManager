@@ -15,8 +15,9 @@
 
 		<Modal v-if="showCreateModal" @closeModal="modalToggle(false)">
 			<h1>Create new project</h1>
-			<input type="text" />
-			<span v-if="modalErrorText">{{modalErrorText}}</span>
+			<input type="text" id="nameInput"/>
+			<br />
+			<div v-if="modalErrorText">{{modalErrorText}}</div>
 			<Button :text="'Save'" @clicked="modalSave" />
 		</Modal>
 		
@@ -56,14 +57,17 @@ export default {
 			else this.showCreateModal = !this.showCreateModal;
 		},
 		modalSave() {
-			const result = this.createProject('Boros');
+			const result = this.createProject(document.getElementById("nameInput").value);
 			result.success ? this.modalToggle(false) : this.modalErrorText = result.error;
 		},
 		//Project functions
 		createProject(name) {
-			if (this.projects.some(project => project.name == name)) {
+			if (!name)
+				return {success: false, error: `Project name can't be empty`};
+
+			if (this.projects.some(project => project.name == name)) 
 				return {success: false, error: `Project already exists with name: ${name}`};
-			}
+			
 			this.projects.push({name: name, timeWorked: 0, lastInvoice: 0, completed: false});
 			this.saveDB();
 			return {success: true}
@@ -97,10 +101,41 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped >
+<style scoped lang="scss">
 .frontpage {
 	background-color: #424141;
 	color: white;
 	text-align: center;
+}
+
+.modal {
+
+	.modalContent {
+		display: flex;
+		flex-direction: column;
+	}
+
+	input {
+		height: 24px;
+		border-radius: 5px;
+		font-size: 20px;
+		border: none;
+		width: 200px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	div {
+		margin: 5px;
+	}
+
+	h1 {
+		margin: 10px 5px;
+		font-size: 20px;
+		padding-bottom: 2px;
+		border-bottom: 2px solid white;
+	}
 }
 </style>
