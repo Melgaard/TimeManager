@@ -86,6 +86,7 @@ export default {
 .header {
 	display: flex;
 	padding-left: 5px;
+	text-align: left;
 
 	h1 {
 		margin: 10px 5px;
@@ -102,6 +103,9 @@ export default {
 	.button {
 		width: 20px;
 		height: 20px;
+
+		position: absolute;
+		right: 0px;
 	}
 }
 

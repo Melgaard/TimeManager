@@ -9,7 +9,8 @@
 					/>
 			</span>
 		</div>
-		<div>
+
+		<div class="createButton">
 			<Button :text="'Create new project'" @clicked="modalToggle" />
 		</div>
 
@@ -106,6 +107,11 @@ export default {
 	background-color: #424141;
 	color: white;
 	text-align: center;
+
+	.createButton {
+		width: fit-content;
+		margin: auto;
+	}
 }
 
 .modal {
