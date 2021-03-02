@@ -8,7 +8,7 @@
 			<Button  @clicked="deleteProject" :text="'&#10007;'"/>
 		</div>
 		
-		<BigButton :icon="'stopwatch'" :text="currentlyWorking ? 'Stop working' : 'Start working'" @click="workToggle"/>
+		<BigButton :icon="'stopwatch'" :currentlyWorking="currentlyWorking" @click="workToggle"/>
 		
 		<div class="footer">
 			<Button :text="'Send Invoice &#9993;'" />
@@ -61,9 +61,6 @@ export default {
 		minutesWorked() {
 			return this.project.timeWorked % 60;
 		}
-	},
-	async created() {
-		// this.$refs.project.style.backgroundColor = this.project.completed ? 'red' : 'yellow';
 	}
 }
 </script>
@@ -114,6 +111,6 @@ export default {
 	bottom: 0px;
 	right: 0px;
 
-	padding: 3px;;
+	padding: 3px;
 }
 </style>

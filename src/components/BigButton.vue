@@ -1,7 +1,7 @@
 <template>
-	<div class="bigButton" ref="bigButton" @click="clicked">
-		<img src="../assets/stopwatch.png" v-if="icon == 'stopwatch'"/>
-		<span>{{text}}</span>
+	<div class="bigButton" ref="bigButton" @click="clicked" :class="[currentlyWorking ? 'working' : 'notWorking']" >
+		<img src="../assets/stopwatch.png" v-if="icon == 'stopwatch'" />
+		<span>{{currentlyWorking ? 'Stop working' : 'Start working'}}</span>
 		
 	</div>
 </template>
@@ -10,7 +10,7 @@
 export default {
 	name: 'BigButton',
 	props: {
-		text: String,
+		currentlyWorking: Boolean,
 		icon: String
 	},
 	methods: {
@@ -37,7 +37,12 @@ export default {
 	border-radius: 25px;
 	box-shadow: 5px 5px black;
 
-	background-color: indianred; //#29B150
+	&.notWorking {
+		background-color: indianred;
+	}
+	&.working {
+		background-color: #29B150;
+	}
 
 	&:active {
 		box-shadow: none;
